@@ -19,8 +19,8 @@ class TabItem extends StatelessWidget {
       required this.iconColor});
 
   final UniqueKey uniqueKey;
-  final String title;
-  final IconData iconData;
+  final Widget title;
+  final Widget iconData;
   final bool selected;
   final Function(UniqueKey uniqueKey) callbackFunction;
   final Color textColor;
@@ -44,13 +44,7 @@ class TabItem extends StatelessWidget {
                 alignment: Alignment(0, (selected) ? TEXT_ON : TEXT_OFF),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    title,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w600, color: textColor),
-                  ),
+                  child: title,
                 )),
           ),
           Container(
@@ -68,10 +62,7 @@ class TabItem extends StatelessWidget {
                   splashColor: Colors.transparent,
                   padding: EdgeInsets.all(0),
                   alignment: Alignment(0, 0),
-                  icon: Icon(
-                    iconData,
-                    color: iconColor,
-                  ),
+                  icon:iconData,  
                   onPressed: () {
                     callbackFunction(uniqueKey);
                   },
